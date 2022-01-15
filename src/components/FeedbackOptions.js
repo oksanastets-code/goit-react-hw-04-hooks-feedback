@@ -4,10 +4,11 @@ import { Button } from './FeedbackOptions.styled';
 export default function FeedbackOptions({ options, onIncrement }) {
   return (
     <>
-      {options.map(option => (
+      {Object.keys(options).map(option => (
         <Button
           key={option}
           type="button"
+          name={option}
           onClick={() => onIncrement(option)}
           style={{ textTransform: 'capitalize' }}
         >
@@ -18,6 +19,6 @@ export default function FeedbackOptions({ options, onIncrement }) {
   );
 }
 FeedbackOptions.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.object,
   onIncrement: PropTypes.func,
 };
